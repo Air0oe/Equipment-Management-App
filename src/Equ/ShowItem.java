@@ -25,7 +25,7 @@ public class ShowItem extends javax.swing.JFrame {
         btnBack.setBackground(new java.awt.Color(102, 102, 102));
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack.setText("Back");
+        btnBack.setText("Logout");
         btnBack.setToolTipText("");
         btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -87,9 +87,9 @@ public class ShowItem extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        MenuFrame menu = new MenuFrame();
+        LoginFrame loginFrame = new LoginFrame();
         this.hide();
-        menu.setVisible(true);
+        loginFrame.setVisible(true);
         
     }//GEN-LAST:event_btnBackActionPerformed
 
