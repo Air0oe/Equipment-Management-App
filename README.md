@@ -1,1 +1,1 @@
-# Equipment-Management-App
+"equipment.sql" - Baza Danych
