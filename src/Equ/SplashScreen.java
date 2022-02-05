@@ -18,7 +18,7 @@ public class SplashScreen extends javax.swing.JFrame {
         backgroundPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        txtLabel = new javax.swing.JLabel();
         progressBar = new javax.swing.JProgressBar();
         foregroundImage = new javax.swing.JLabel();
         backgroundImage = new javax.swing.JLabel();
@@ -28,23 +28,23 @@ public class SplashScreen extends javax.swing.JFrame {
         backgroundPanel.setBackground(new java.awt.Color(153, 153, 0));
         backgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 3, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Equipment");
         backgroundPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 300, 80));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Management");
         backgroundPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 300, 80));
 
-        jLabel2.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 2, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setText("Loading ...");
-        backgroundPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 140, 50));
+        txtLabel.setBackground(new java.awt.Color(102, 102, 102));
+        txtLabel.setFont(new java.awt.Font("Segoe UI Black", 2, 18)); // NOI18N
+        txtLabel.setForeground(new java.awt.Color(102, 102, 102));
+        txtLabel.setText("Loading ...");
+        backgroundPanel.add(txtLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 510, 50));
 
         progressBar.setBackground(new java.awt.Color(102, 102, 102));
         progressBar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -95,13 +95,40 @@ public class SplashScreen extends javax.swing.JFrame {
         splashScreen.setVisible(true);
         
         try {
-            for(int i = 0; i<=100; i++)
+            for(int i=0; i<=100; i++)
             {
-               Thread.sleep(60); 
-               splashScreen.progressBar.setValue(i);
+                Thread.sleep(50);
+                if(i == 23)
+                {
+                    splashScreen.txtLabel.setText("Loading Packages ...");
+                   
+                }
+                
+                if(i == 46)
+                {
+                    splashScreen.txtLabel.setText("Connecting To Database ...");
+                }
+                
+                if(i == 71)
+                {
+                    splashScreen.txtLabel.setText("Connecting To Database - Succes !");
+                }
+                
+                if(i == 90)
+                {
+                    splashScreen.txtLabel.setText("lauching Application ...");
+                }
+
+                splashScreen.progressBar.setValue(i);
+                
+                
+                if(i == 100)
+                {
+                    LoginFrame loginFrame = new LoginFrame();
+                    loginFrame.setVisible(true);
+                    splashScreen.setVisible(false);
+                }
             }
-            
-            
         } catch (Exception e) {
         }
         
@@ -112,8 +139,8 @@ public class SplashScreen extends javax.swing.JFrame {
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JLabel foregroundImage;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JProgressBar progressBar;
+    private javax.swing.JLabel txtLabel;
     // End of variables declaration//GEN-END:variables
 }
