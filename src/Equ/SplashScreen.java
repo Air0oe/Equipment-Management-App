@@ -111,7 +111,7 @@ public class SplashScreen extends javax.swing.JFrame {
                 
                 if(i == 71)
                 {
-                    splashScreen.txtLabel.setText("Connecting To Database - Succes !");
+                    splashScreen.txtLabel.setText("Connecting To Database - Success !");
                 }
                 
                 if(i == 90)
