@@ -4,6 +4,8 @@ public class MenuFrame extends javax.swing.JFrame {
     public MenuFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
+       
+        
     }
     
     public MenuFrame(int x)

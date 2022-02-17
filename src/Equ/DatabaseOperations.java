@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,19 +17,29 @@ class DatabaseOperations {
     
     public DatabaseOperations()
     {
-        Connect();
+        
+        LoginToDatabase loginToDatabase = new LoginToDatabase();
+        loginToDatabase.setVisible(true);
+        String link = loginToDatabase.databaseLink.getText().toString();
+        String username = loginToDatabase.databaseUsername.getText().toString();
+        String password = loginToDatabase.databasePassword.getText().toString();
+        Connect(link, username, password);
+           
     }
     
     Connection con;
     PreparedStatement pst;
     DefaultTableModel df;
     
-    private void Connect()
+    private void Connect(String link, String username, String password)
     {
+        //link = "jdbc:mysql://mysql.alyx.pl/zpsb_equ";
+        //username = "zpsb_equ";
+        //password = "zpsb_equ_pass";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
            // con = DriverManager.getConnection("jdbc:mysql://localhost/equ", "root", "");
-            con = DriverManager.getConnection("jdbc:mysql://mysql.alyx.pl/zpsb_equ", "zpsb_equ", "zpsb_equ_pass");
+            con = DriverManager.getConnection(link, username, password);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DatabaseOperations.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
