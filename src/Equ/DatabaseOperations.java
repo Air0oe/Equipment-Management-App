@@ -27,8 +27,8 @@ class DatabaseOperations {
     {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/equ", "root", "");
-            
+           // con = DriverManager.getConnection("jdbc:mysql://localhost/equ", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://mysql.alyx.pl/zpsb_equ", "zpsb_equ", "zpsb_equ_pass");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DatabaseOperations.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
